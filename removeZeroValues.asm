@@ -1,6 +1,7 @@
 bits 64
 default rel
 
+; 11/18/2026
 ; Challenge 06 — Remove zero values
 ; You are given an array of unsigned integers ranging from 0 to 65,535.
 
