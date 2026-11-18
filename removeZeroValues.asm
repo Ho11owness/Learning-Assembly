@@ -55,23 +55,23 @@ _start:
     repeat:
         lea r9, [rsi + rcx * 2] ; pointer to current element
         cmp word [r9], 0
-	je check
-	inc ebx
-	mov r10d, ebx
-	sub r10d, 1
-	lea r11, [rsi + r10 * 2] ; pointer to swap position
-	movzx edx, word [r9]
-	cmp r9, r11
-	je check
-	mov [r11], dx
-	mov word [r9], 0
+	    je check
+	    inc ebx
+	    mov r10d, ebx
+	    sub r10d, 1
+	    lea r11, [rsi + r10 * 2] ; pointer to swap position
+	    movzx edx, word [r9]
+	    cmp r9, r11
+	    je check
+	    mov [r11], dx
+	    mov word [r9], 0
 
     check:
         inc ecx
-	cmp ecx, eax
-	jb repeat
+	    cmp ecx, eax
+	    jb repeat
 
     finish:
-	mov eax, 60
-	mov edi, 0
-	syscall
+	    mov eax, 60
+	    mov edi, 0
+	    syscall
