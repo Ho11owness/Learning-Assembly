@@ -38,8 +38,6 @@ default rel
 ; [42]	            [42]	            1
 ; []	            []	                0
 
-; Idea in Python
-
 ; CHALLENGE STARTS HERE
 
 ; Python idea
