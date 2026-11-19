@@ -45,6 +45,7 @@ default rel
 ; first_occurrence = array[0]
 ; distinct_elements = 1
 
+; CHALLENGE STARTS HERE
 
 ; Python idea
 
