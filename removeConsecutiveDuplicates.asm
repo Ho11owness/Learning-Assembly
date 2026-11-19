@@ -1,6 +1,3 @@
-bits 64
-default rel
-
 ; 11/19/2026
 ; Challenge 07 — Remove consecutive duplicates
 
@@ -59,6 +56,9 @@ default rel
 ;         array[distinct_elements - 1] = first_occurrence
      
 ;     return distinct_elements
+
+bits 64
+default rel
 
 section .data
     array dw 10, 20, 30
