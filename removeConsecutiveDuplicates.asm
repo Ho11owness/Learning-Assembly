@@ -90,25 +90,25 @@ _start:
         lea rdx, [rsi + rcx * 2]
        
         ; if i == 0 or array[i] != first_occurence -> True
-	test ecx, ecx
-	je ifIsFirstOccurrence
+	    test ecx, ecx
+	    je ifIsFirstOccurrence
 
-	cmp [rdx], di
+	    cmp [rdx], di
         jne ifIsFirstOccurrence
-	je swap
+	    je swap
 
     ifIsFirstOccurrence:
         inc ebx
-	movzx edi, word [rdx]
+	    movzx edi, word [rdx]
 
     swap:
         mov word [rdx], 0
-	mov [rsi + rbx * 2 - 2], di
-	inc ecx
-	cmp ecx, eax
-	jb loop
+	    mov [rsi + rbx * 2 - 2], di
+	    inc ecx
+	    cmp ecx, eax
+	    jb loop
 
     done:
         mov eax, 60
-	xor edi, edi
-	syscall
+	    xor edi, edi
+	    syscall
