@@ -40,11 +40,6 @@ default rel
 
 ; Idea in Python
 
-; array = [10, 10, 20, 20, 20, 30, 40, 40]
-
-; first_occurrence = array[0]
-; distinct_elements = 1
-
 ; CHALLENGE STARTS HERE
 
 ; Python idea
