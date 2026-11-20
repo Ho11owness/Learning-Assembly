@@ -5,15 +5,15 @@
 
 ; Test cases
 
-; Command	 Expected EBX	Exit status
+; Command	   Expected EBX	   Exit status
 ; ./main 1234	  1234	            0
 ; ./main 65535	  65535	            0
 ; ./main 00042	  42	            0
-; ./main 0	  0	            0
-; ./main 1000000  1000000	    0
+; ./main 0	      0	                0
+; ./main 1000000  1000000	        0
 ; ./main 12a3	  Unspecified	    1
-; ./main ""	  Unspecified	    1
-; ./main	  Unspecified	    1
+; ./main ""	      Unspecified	    1
+; ./main	      Unspecified	    1
 
 ; Constraints
 ; - Valid numerical inputs range from 0 to 1,000,000.
@@ -52,29 +52,29 @@ _start:
     loop: 
         movzx edx, byte [rsi]
 
-	test edx, edx
-	jnz checkRange
+	    test edx, edx
+	    jnz checkRange
 
-	xor edi, edi
-	jmp done
+	    xor edi, edi
+	    jmp done
     
     checkRange:
         cmp edx, byte '0'
-	jb done
+	    jb done
 
-	cmp edx, byte '9'
-	ja done
+	    cmp edx, byte '9'
+	    ja done
 
     convertDigit:
         sub edx, '0'
         
-	imul ebx, 10
-	add ebx, edx
+	    imul ebx, 10
+	    add ebx, edx
 
-	inc rsi	
-	jmp loop
+	    inc rsi	
+	    jmp loop
 
     done:
         mov eax, 60
-	syscall
+	    syscall
 
