@@ -59,7 +59,7 @@ absoluteDifference:
     ; RAX = Absolute difference between RDI and RSI
 
     ; Clobbers:
-    ; RAX, RDI, RSI
+    ; RAX
 
     cmp edi, esi
     je areEqual
