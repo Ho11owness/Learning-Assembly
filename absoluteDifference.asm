@@ -69,17 +69,17 @@ absoluteDifference:
     
     areEqual:
         xor eax, eax
-	ret
+	    ret
 
     rsiIsMax:
         mov eax, esi
 	sub eax, edi
-	ret
+	    ret
 
     rdiIsMax:
         mov eax, edi
 	sub eax, esi
-	ret
+	    ret
 
 atoi:
     ; Arguments:
@@ -103,10 +103,10 @@ atoi:
     loop:
         movzx edx, byte [rdi]
 
-	test edx, edx
-	jnz checkRange
+	    test edx, edx
+	    jnz checkRange
 
-	ret
+	    ret
 
     checkRange:
         cmp edx, byte '0'
@@ -118,15 +118,15 @@ atoi:
     convertDigit:
         sub edx, '0'
 
-	imul rax, 10
-	add rax, rdx
+	    imul rax, 10
+	    add rax, rdx
 
-	inc rdi
-	jmp loop
+	    inc rdi
+	    jmp loop
 
     invalidInput:
         xor eax, eax
-	ret
+	    ret
 
 error:
     mov edi, 1
