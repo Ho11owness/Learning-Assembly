@@ -73,12 +73,12 @@ absoluteDifference:
 
     rsiIsMax:
         mov eax, esi
-	sub eax, edi
+	    sub eax, edi
 	    ret
 
     rdiIsMax:
         mov eax, edi
-	sub eax, esi
+	    sub eax, esi
 	    ret
 
 atoi:
