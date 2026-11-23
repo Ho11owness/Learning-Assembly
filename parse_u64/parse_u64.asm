@@ -42,30 +42,30 @@ parse_u64:
     .loop:
         movzx r8d, byte [rdi]
 
-	cmp r8d, '0'
-	jb .invalidInput
+	    cmp r8d, '0'
+	    jb .invalidInput
 
-	cmp r8d, '9'
-	ja .invalidInput
+	    cmp r8d, '9'
+	    ja .invalidInput
         
     	mul r9
-	jc .overflow
-	sub r8d, '0'
-	add rax, r8
-	jc .overflow
+	    jc .overflow
+	    sub r8d, '0'
+	    add rax, r8
+	    jc .overflow
 
-	inc rdi
-	cmp byte [rdi], 0
-	jne .loop
+	    inc rdi
+	    cmp byte [rdi], 0
+	    jne .loop
 
-	mov [rsi], rax
-	xor rax, rax
-	ret
+	    mov [rsi], rax
+	    xor rax, rax
+	    ret
 
     .invalidInput:
         mov eax, 1
-	ret
+	    ret
 
     .overflow:
         mov eax, 2
-	ret
+	    ret
