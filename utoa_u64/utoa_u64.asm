@@ -1,3 +1,5 @@
+; 11/23/2026
+
 bits 64
 default rel
 
@@ -194,7 +196,7 @@ utoa_u64:
         cmp r10, rdx
 	    ja .insufficientBufferCapacity
 
-    ; moving arguments since the div instructions will overwrite them
+    ; preparing variables for division
     mov rax, rdi
     mov r8, rdx
     mov r9d, 10
