@@ -192,7 +192,7 @@ utoa_u64:
     .checkBufferCapacity:
         inc r10 ; accounting for null terminator
         cmp r10, rdx
-	ja .insufficientBufferCapacity
+	    ja .insufficientBufferCapacity
 
     ; moving arguments since the div instructions will overwrite them
     mov rax, rdi
@@ -206,20 +206,20 @@ utoa_u64:
     .loop:
         dec r10
         xor edx, edx
-	div r9
-	add rdx, '0'
-	mov byte [rsi + r10], dl
-	test rax, rax
-	jnz .loop
+	    div r9
+	    add rdx, '0'
+	    mov byte [rsi + r10], dl
+	    test rax, rax
+	    jnz .loop
 
     .done:
         mov eax, 0
-	ret
+	    ret
     
     .nullPointer:
         mov eax, 1
-	ret
+	    ret
 
     .insufficientBufferCapacity:
         mov eax, 2
-	ret
+	    ret
