@@ -30,8 +30,8 @@ int main(void) {
 
 	/// Large integers
 	{9999999999999999999ULL, 20, "9999999999999999999", 0, 0},
-        {10000000000000000000ULL, 21, "10000000000000000000", 0, 0},
-        {UINT64_MAX, 21, "18446744073709551615", 0, 0},
+    {10000000000000000000ULL, 21, "10000000000000000000", 0, 0},
+    {UINT64_MAX, 21, "18446744073709551615", 0, 0},
 
 	/// Buffer capacity errors
 	{42, 0, NULL, 2, 0},
@@ -50,41 +50,41 @@ int main(void) {
     size_t passed = 0;
 
     for (size_t i = 0; i < count; i++) {
-	TestCase test = tests[i];
-	char buffer[32];
-	memset(buffer, 0xA5, sizeof(buffer));
+	    TestCase test = tests[i];
+	    char buffer[32];
+	    memset(buffer, 0xA5, sizeof(buffer));
         
-	char *output = test.null_buffer ? NULL : buffer;
+	    char *output = test.null_buffer ? NULL : buffer;
 
-	int status = utoa_u64(
-	    test.value,
-	    output,
-	    test.capacity
-	);
+	    int status = utoa_u64(
+	        test.value,
+	        output,
+	        test.capacity
+	    );
 
-	int success = (status == test.expected_status);
+	    int success = (status == test.expected_status);
 
-	if (success && status == 0) {
-	    size_t length = strlen(test.expected_string) + 1;
+	    if (success && status == 0) {
+	        size_t length = strlen(test.expected_string) + 1;
 
 	    if (memcmp(buffer, test.expected_string, length) != 0) {
-		success = 0;
-	    }
-	}
-
-	if (success && status != 0 && !test.null_buffer) {
-	    for (size_t j = 0; j < sizeof(buffer); j++) {
-		if ((unsigned char)buffer[j] != 0xA5) {
 		    success = 0;
-		}
 	    }
 	}
 
-	printf("[%s] Test %zu\n", success ? "PASS" : "FAIL", i + 1);
+	    if (success && status != 0 && !test.null_buffer) {
+	        for (size_t j = 0; j < sizeof(buffer); j++) {
+		        if ((unsigned char)buffer[j] != 0xA5) {
+		            success = 0;
+		        }
+	        }
+	    }
 
-	if (success) {
-	    passed++;
-	}
+	    printf("[%s] Test %zu\n", success ? "PASS" : "FAIL", i + 1);
+
+	    if (success) {
+	        passed++;
+	    }
     }
 
     printf("\n%zu/%zu tests passed\n", passed, count);
