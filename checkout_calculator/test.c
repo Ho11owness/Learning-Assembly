@@ -23,7 +23,7 @@ extern uint64_t checkout_total(uint64_t price, uint64_t discountPercent, uint64_
 
 int main(void) {
     TestCase tests[] = {
-        {10000, 20, 10, 8800},
+    {10000, 20, 10, 8800},
 	{5000, 0, 21, 6050},
 	{2000, 50, 0, 1000},
 	{100, 100, 20, 0},
@@ -36,16 +36,16 @@ int main(void) {
     size_t passed = 0;
 
     for (size_t i = 0; i < count; i++) {
-	TestCase test = tests[i];
+	    TestCase test = tests[i];
 
-	uint64_t totalPrice = checkout_total(test.price, test.discountPercent, test.taxPercent);
+	    uint64_t totalPrice = checkout_total(test.price, test.discountPercent, test.taxPercent);
 
 	if (totalPrice == test.expectedPrice) {
 	    passed++;
 	    printf("%" PRIu64 ", %" PRIu64 ", %" PRIu64 ": PASSED\n", test.price, test.discountPercent, test.taxPercent);
-	} else {
+    } else {
 	    printf("%" PRIu64 ", %" PRIu64 ", %" PRIu64 ": FAILED -> Expected %" PRIu64 " but got %" PRIu64 "\n", test.price, test.discountPercent, test.taxPercent, test.expectedPrice, totalPrice);
-	}
+	    }
     }
 
     printf("PASSED: %zu/%zu\n", passed, count);
